@@ -28,6 +28,7 @@ if(isset($_POST['submit'])){
 
 ?>
 
+<<<<<<< HEAD
 
 <!DOCTYPE html>
 <html lang="en">
@@ -39,6 +40,16 @@ if(isset($_POST['submit'])){
 
    <!-- font awesome cdn link  -->
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+=======
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+   <title>register</title>
+
+   <!-- font awesome cdn link  -->
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">  
+>>>>>>> 8b0f188 (Successful Login and database update)
 
    <!-- custom css file link  -->
    <link rel="stylesheet" href="css/style.css">
@@ -64,17 +75,30 @@ if(isset($message)){
 <div class="form-container">
 
    <form action="" method="post">
+<<<<<<< HEAD
       <h3>register now</h3>
+=======
+      <h3>Register Now</h3>
+>>>>>>> 8b0f188 (Successful Login and database update)
       <input type="text" name="name" placeholder="enter your name" required class="box">
       <input type="email" name="email" placeholder="enter your email" required class="box">
       <input type="password" name="password" placeholder="enter your password" required class="box">
       <input type="password" name="cpassword" placeholder="confirm your password" required class="box">
+<<<<<<< HEAD
       <select name="user_type" class="box">
          <option value="user">user</option>
          <option value="admin">admin</option>
       </select>
       <input type="submit" name="submit" value="register now" class="btn">
       <p>already have an account? <a href="login.php">login now</a></p>
+=======
+      <select name="user_type" class="box" id="selector">
+         <option value="user">user</option>
+         <option value="admin">admin</option>
+      </select>
+      <input type="submit" name="submit" value="Register Now" class="btn">
+      <p class= "ques">already have an account? <a href="login.php" class="link">login now </a></p>
+>>>>>>> 8b0f188 (Successful Login and database update)
    </form>
 
 </div>
