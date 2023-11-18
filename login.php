@@ -51,7 +51,7 @@ if(isset($_POST['submit'])){
    <link rel="stylesheet" href="css/style.css">
 
 </head>
-<body>
+<body class="backLog">
 
 <?php
 if(isset($message)){
@@ -69,7 +69,7 @@ if(isset($message)){
 <div class="form-container">
 
    <form action="" method="post">
-      <h3>Login Now</h3>
+      <h3 class="logintext" >Login Now</h3>
       <input type="email" name="email" placeholder="enter your email" required class="box">
       <input type="password" name="password" placeholder="enter your password" required class="box">
       <input type="submit" name="submit" value="login now" class="btn">
