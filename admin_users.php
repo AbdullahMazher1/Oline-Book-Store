@@ -32,7 +32,7 @@ if(isset($_GET['delete'])){
 </head>
 <body>
    
-<!--<ques php include 'admin_header.php'; ?>  -->
+<?php include 'admin_header.php'; ?>
 
 <section class="users">
 
@@ -43,7 +43,7 @@ if(isset($_GET['delete'])){
          $select_users = mysqli_query($conn, "SELECT * FROM `users` WHERE status = 'Active'") or die('query failed');
          while($fetch_users = mysqli_fetch_assoc($select_users)){
       ?>
-      <div class="box">
+      <div class="userbox">
          <p> user id : <span><?php echo $fetch_users['id']; ?></span> </p>
          <p> username : <span><?php echo $fetch_users['name']; ?></span> </p>
          <p> email : <span><?php echo $fetch_users['email']; ?></span> </p>

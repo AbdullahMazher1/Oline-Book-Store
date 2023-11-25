@@ -132,6 +132,9 @@ if (isset($_POST['update_product'])) {
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <title>products</title>
 
    <!-- font awesome cdn link  -->
@@ -143,7 +146,7 @@ if (isset($_POST['update_product'])) {
 </head>
 <body>
    
-<!-------------------------------------------<Ques php include 'admin_header.php'; ques> -->
+<?php include 'admin_header.php'; ?>
 
 <!-- product CRUD section starts  -->
 
@@ -158,7 +161,7 @@ if (isset($_POST['update_product'])) {
       <input type="number" min="5" name="price" class="box" placeholder="Enter product price" required>
       <input type="number" min="10" name="stock" class="box" placeholder="Enter product stock" required> 
       <input type="file" name="image" accept="image/jpg, image/jpeg, image/png" class="box" required>
-      <input type="submit" value="Add Product" name="add_product" class="btn">
+      <input type="submit" value="Add Product" name="add_product" class="addbtn">
    </form>
 
 </section>
@@ -196,7 +199,7 @@ if (isset($_POST['update_product'])) {
                    echo '<div class="author">Author: ' . $fetch_products['author'] . '</div>';
                    echo '<div class="price">$' . $fetch_products['price'] . '/-</div>';
                    echo '<div class="stock">Stock: ' . $stock . '</div>';
-                   echo '<a href="admin_products.php?update=' . $fetch_products['id'] . '" class="option-btn">Update</a>';
+                   echo '<a href="admin_products.php?update=' . $fetch_products['id'] . '" class="update-btn">Update</a>';
                    echo '<a href="admin_products.php?delete=' . $fetch_products['id'] . '" class="delete-btn" onclick="return confirm(\'Delete this product?\');">Delete</a>';
                    echo '</div>';
                }
@@ -208,6 +211,7 @@ if (isset($_POST['update_product'])) {
    </div>
 </section>
 
+<!--Edit a book-->
 
 <section class="edit-product-form">
     <?php
@@ -231,21 +235,22 @@ if (isset($_POST['update_product'])) {
                 <input type="number" name="update_stock" value="<?php echo $fetch_update['stock']; ?>" min="0"
                        class="box" required placeholder="Enter product stock">
                 <input type="file" class="box" name="update_image" accept="image/jpg, image/jpeg, image/png">
-                <input type="submit" value="Update" name="update_product" class="btn">
+                <input type="submit" value="Update" name="update_product" class="update-btn">
                 <input type="reset" value="Cancel" id="close-update" class="option-btn">
             </form>
             <!-- End of Update Product Form -->
             <?php
         }
     } else {
-        echo '<script>document.querySelector(".edit-product-form").style.display = "none";</script>';
+        //echo '<p>No product found for update.</p>';
+        echo '<script>document.querySelector(".edit-product-form").style.display ="none";</script>';
     }
     ?>
 </section>
 
 
 <!-- custom admin js file link -->
-<script src="js/admin_script.js"></script>
+<script src="js/admin_script.js"></script> 
 
 </body>
 </html>
