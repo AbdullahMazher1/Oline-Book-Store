@@ -1,109 +1,18 @@
-/*
-.form-container{
-    min-height: 100vh;
-    background-color: var(--light-bg);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding:2rem;
- }
- .form-container form{
-    padding:2rem;
-    width: 50rem;
-    border-radius: .5rem;
-    box-shadow: var(--box-shadow);
-    border:var(--border);
-    background-color: var(--white);
-    text-align: center;
- }
- 
- .message i{ 
-    cursor: pointer;
-    color:var(--red);
-    font-size: 2.5rem;
- }
- 
- .message i:hover{ 
-    transform: rotate(90deg);
- }
- 
- .form-container form .box{
-    width: 100%;
-    border-radius: .5rem;
-    background-color: var(--light-bg);
-    padding:1.2rem 1.4rem;
-    font-size: 1.8rem;
-    color:var(--black);
-    border:var(--border);
-    margin:1rem 0;
- }
- .message{  
-    position: sticky;
-    top:0;
-    margin:0 auto;
-    max-width: 1200px;
-    background-color: var(--white);
-    padding:2rem;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    z-index: 10000;
-    gap:1.5rem;
- }
- 
- .message span{ 
-    font-size: 2rem;
-    color:var(--black);
- }
-
- .btn:hover,
-.option-btn:hover,
-.delete-btn:hover{
-   background-color: var(--black);
-}
-
- .form-container form h3{
-    font-size: 3rem;
-    margin-bottom: 1rem;
-    text-transform: uppercase;
-    color:var(--black);
- }
-
-
-.heading{
-    min-height: 30vh;
-    display: flex;
-    flex-flow: column;
-    align-items: center;
-    justify-content: center;
-    gap:1rem;
-    background: url(../images/heading-bg.webp) no-repeat;
-    background-size: cover;
-    background-position: center;
-    text-align: center;
- }
- 
- .heading h3{
-    font-size: 5rem;
-    color:var(--black);
-    text-transform: uppercase;
- }
-*/
-
-.backLog {
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600&display=swap');
+.backLog{
   margin: 0;
   padding: 0;
   background-image:url('../images/books-bg.jpg');
   background-size: cover;
   font-family: Arial, sans-serif;
   background-color: rgba(176, 176, 176, 0.463); 
-  
+    
 }
 .logintext{
   margin-bottom: 4%;
 }
-
-/* Center the form container */
+  
+  /* Center the form container */
 .form-container {
   text-align: center;
   position: absolute;
@@ -115,13 +24,13 @@
   border-radius: 8px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
-
+  
 /* Style the form elements */
 .form-container form {
   max-width: 300px;
   margin: auto;
 }
-
+  
 .box {
   width: 90%;
   padding: 10px;
@@ -141,12 +50,12 @@
   color: white;
   cursor: pointer;
 }
-
+  
 .btn:hover {
   background-color: #004186;
 }
-
-/*Style the message box */
+  
+  /*Style the message box */
 .message {
   margin-bottom: 10px;
   padding: 10px;
@@ -155,12 +64,12 @@
   color: #a94442;
   position: relative;
 }
-
+  
 .message span {
-  display: inline-block;
-  margin-right: 20px;
+    display: inline-block;
+    margin-right: 20px;
 }
-
+  
 .message i {
   position: absolute;
   top: 5px;
@@ -177,9 +86,188 @@
   color: rgb(255, 255, 255);
 }
 
-/*Home*/
-/*
-.home{
+
+
+/*Header*/
+
+
+/* Header styles */
+/* .header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #333;
+  color: #fff;
+  padding: 10px 20px;
+  z-index: 1000; 
+}
+
+
+body {
+  padding-top: 60px; 
+}
+
+.flex {
+  display: flex;
+  align-items: center;
+  
+}
+
+.logo {
+  font-size: 24px;
+  font-weight: bold;
+  text-decoration: none;
+  color: #fff;
+}
+
+.navbar {
+  margin-left: auto;
+}
+
+.navbar a {
+  color: #fff;
+  text-decoration: none;
+  margin-right: 20px;
+  font-weight: bold;
+}
+
+
+.user-box {
+  display: none;
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background-color: #fff;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.user-box p {
+  margin-bottom: 5px;
+}
+
+.user-box a {
+  display: block;
+  text-decoration: none;
+  color: #fff;
+  background-color: #333;
+  padding: 5px 10px;
+  border-radius: 3px;
+}
+
+Responsive styles 
+@media (max-width: 768px) {
+  .header-1,
+  .header-2 {
+    display: none;
+  }
+
+  .header {
+    padding: 10px;
+  }
+
+  #menu-btn {
+    display: block;
+  }
+
+  .navbar {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #333;
+    width: 100%;
+    text-align: center;
+  }
+
+  .navbar a {
+    display: block;
+    padding: 10px 0;
+    border-bottom: 1px solid #fff;
+    margin: 0;
+  }
+
+  .user-box {
+    position: static;
+    display: block;
+    margin-top: 10px;
+  }
+} */
+/*------------------------Header----------------------*/
+/* Basic reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Header styles */
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: rgb(33, 189, 186);
+  color: #151313;
+  padding: 10px 20px;
+  z-index: 1000;
+}
+
+/* Padding to the body to prevent content from being hidden under the fixed header */
+body {
+  padding-top: 100px; /* Adjust this value based on your design */
+}
+
+.flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Social icons */
+.share a {
+  color: #fff;
+  margin-right: 10px;
+}
+.font-opt{
+  font-size: 1pc;
+  color:black;
+}
+/* "New login | register" */
+.flex p {
+  color: #fff;
+}
+
+/* "Booklit" text */
+.logo {
+  font-size: 24px;
+  font-weight: bold;
+  text-decoration: none;
+  color: purple;
+  font-size: xx-large;
+}
+
+/* Navigation links */
+.navbar a {
+  color: #fff;
+  text-decoration: underline;
+  margin-right: 20px;
+  font-weight: bold;
+  font-size: larger;
+}
+
+/* Icons for search, user, and cart */
+.icons .fas {
+  color: #353333;
+  margin-left: 20px;
+  font-size: 18px;
+}
+
+/*----------------------home-----------------*/
+/* Home page specific styles */
+.home {
   min-height: 70vh;
   background:linear-gradient(rgba(0,0,0,.7), rgba(0,0,0,.7)), url(../images/home-bg.jpg) no-repeat;
   background-size: cover;
@@ -189,275 +277,123 @@
   justify-content: center;
 }
 
-.home .content{
-text-align: center;
-width: 60rem;
-}
-
-.home .content h3{
-font-size: 5.5rem;
-color:var(--white);
-text-transform: uppercase;
-}
-
-.home .content p{
-font-size:1.8rem;
-color:var(--light-white);
-padding:1rem 0;
-line-height: 1.5;
-}
-*/
-
-/* Reset some default margin */
-body, h1, h3, p {
-margin: 0;
-}
-
-/* Apply background and basic styles for the home section */
-.home {
-background-image: url('../images/home-bg.jpg'); /* Change this to your desired background image */
-background-size: cover;
-background-position: center;
-color: #fff; /* Text color on the background */
-padding: 100px 0; /* Adjust as needed */
-text-align: center;
-}
-
-/* Style content within the home section */
+/* Home section content */
 .home .content {
-max-width: 800px;
-margin: 0 auto;
+  text-align: center;
+  margin-bottom: 30px;
 }
 
-/* Style the title for the products section */
+/* Home section title */
+.home .content h3 {
+  font-size: 4rem;
+  color:var(--white);
+  text-transform: uppercase; /* Change color of the title text */
+}
+
+/* Home section paragraph */
+.home .content p {
+  font-size: 18px;
+  color: #ffffff; /* Change color of the paragraph text */
+}
+
+/* Products section title */
 .products .title {
-text-align: center;
-margin-bottom: 30px;
-color: #333; /* Change this to your desired color */
+  font-size: 50px;
+  font-weight: bold;
+  color: #090909; /* Change color of the title text */
+  margin-bottom: 20px;
 }
 
-/* Style individual product boxes */
-.products .box-container {
-display: flex;
-flex-wrap: wrap;
-justify-content: space-around;
+/* Box container for products */
+.box-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
 }
 
-.products .box {
-width: 250px;
-padding: 15px;
-margin-bottom: 30px;
-border: 1px solid #ddd; /* Change this to your desired border color */
-text-align: center;
+/* Single product box */
+.box {
+  width: 30%; /* Adjust width of each box */
+  padding: 15px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  text-align: center;
+  transition: transform 0.3s ease-in-out;
 }
 
-.products .box img {
-width: 100%;
-max-height: 200px;
-object-fit: cover;
-margin-bottom: 15px;
+.box:hover {
+  transform: translateY(-5px); /* Add hover effect - adjust as needed */
 }
 
-.products .box .name {
-font-weight: bold;
-margin-bottom: 10px;
+/* Product image */
+.box .image {
+  width: 100%;
+  height: 200px; /* Adjust height of the product image */
+  object-fit: cover;
+  border-radius: 5px;
 }
 
-.products .box .price {
-color: #777; /* Change this to your desired color */
-margin-bottom: 10px;
+/* Product name */
+.box .name {
+  margin-top: 10px;
+  font-size: 18px;
+  font-weight: bold;
+  color: #333; /* Change color of the product name */
 }
 
-.products .box .qty {
-width: 50px;
-padding: 5px;
-margin-bottom: 10px;
+/* Product price */
+.box .price {
+  font-size: 16px;
+  color: #777; /* Change color of the product price */
+  margin-top: 5px;
 }
 
-.products .box .btn {
-padding: 8px 15px;
-background-color: #007bff; /* Change this to your desired button color */
-color: #fff; /* Text color on the button */
-border: none;
-cursor: pointer;
+/* Quantity input */
+.box .qty {
+  width: 50px; /* Adjust width of the quantity input */
+  margin: 10px 0;
 }
 
-.products .box .btn:hover {
-background-color: #0056b3; /* Change this to your desired button hover color */
+/* Add to cart button */
+.box .btn {
+  display: block;
+  width: 100%;
+  padding: 8px 0;
+  margin-top: 10px;
+  border: none;
+  border-radius: 5px;
+  background-color: #f951ff;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+  text-decoration: none;
 }
 
-
-
-
-/*Header*/
-.header .header-1{
-background-color: var(--light-bg);
+.box .btn:hover {
+  background-color: #004186; /* Change background color on hover */
 }
 
-.header .header-1 .flex{
-padding:2rem;
-display: flex;
-align-items: center;
-justify-content: space-between;
-max-width: 1200px;
-margin:0 auto;
+/* Empty products message */
+.empty {
+  font-size: 18px;
+  color: #333; /* Change color of the empty message */
+  text-align: center;
+  margin-top: 20px;
 }
 
-.header .header-2{
-background-color: var(--white);
-box-shadow: var(--box-shadow);
+/* Load more button */
+.load-more .option-btn {
+  padding: 10px 20px;
+  border-radius: 5px;
+  background-color: #f951ff;
+  color: white;
+  font-weight: bold;
+  text-decoration: none;
+  transition: background-color 0.3s ease-in-out;
 }
 
-.header .header-2.active{
-position: fixed;
-top:0; left:0; right:0;
-z-index: 1000;
-}
-
-.header .header-2 .flex{
-padding:2rem;
-display: flex;
-align-items: center;
-justify-content: space-between;
-max-width: 1200px;
-margin:0 auto;
-position: relative;
-}
-
-.header .header-1 .flex .share a{
-font-size: 2.5rem;
-margin-right: 1.5rem;
-color:var(--black);
-}
-
-.header .header-1 .flex .share a:hover{
-color:var(--purple);
-}
-
-.header .header-1 .flex p{
-font-size: 2rem;
-color:var(--light-color);
-}
-
-.header .header-1 .flex p a{
-color:var(--purple);
-}
-
-.header .header-1 .flex p a:hover{
-text-decoration: underline;
-}
-
-.header .header-2 .flex .logo{
-font-size: 2.5rem;
-color:var(--purple);
-}
-
-.header .header-2 .flex .navbar a{
-margin:0 1rem;
-font-size: 2rem;
-color:var(--light-color);
-}
-
-.header .header-2 .flex .navbar a:hover{
-color:var(--purple);
-text-decoration: underline;
-}
-
-.header .header-2 .flex .icons > *{
-font-size: 2.5rem;
-color:var(--black);
-cursor: pointer;
-margin-left: 1.5rem;
-}
-
-.header .header-2 .flex .icons > *:hover{
-color:var(--purple);
-}
-
-#menu-btn{
-display: none;
-}
-
-.header .header-2 .flex .user-box{
-position: absolute;
-top:120%; right:2rem;
-background-color: var(--white);
-border-radius: .5rem;
-box-shadow: var(--box-shadow);
-border:var(--border);
-padding:2rem;
-text-align: center;
-width: 30rem;
-display: none;
-animation: fadeIn .2s linear;
-}
-
-.header .header-2 .flex .user-box.active{
-display: inline-block;
-}
-
-.header .header-2 .flex .user-box p{
-font-size: 2rem;
-color:var(--light-color);
-margin-bottom: 1.5rem;
-}
-
-.header .header-2 .flex .user-box p span{
-color:var(--purple);
-}
-
-.header .header-2 .flex .user-box .delete-btn{
-margin-top: 0;
-}
-
-/*Products*/
-
-
-.products .box-container{
-max-width: 1200px;
-margin:0 auto;
-display: grid;
-grid-template-columns: repeat(auto-fit, 30rem);
-align-items: flex-start;
-gap:1.5rem;
-justify-content: center;
-}
-
-.products .box-container .box{
-border-radius: .5rem;
-background-color: var(--white);
-box-shadow: var(--box-shadow);
-padding:2rem;
-text-align: center;
-border:var(--border);
-position: relative;
-}
-
-.products .box-container .box .image{
-height: 30rem;
-}
-
-.products .box-container .box .name{
-padding:1rem 0;
-font-size: 2rem;
-color:var(--black);
-}
-
-.products .box-container .box .qty{
-width: 100%;
-padding:1.2rem 1.4rem;
-border-radius: .5rem;
-border:var(--border);
-margin:1rem 0;
-font-size: 2rem;
-}
-
-.products .box-container .box .price{
-position: absolute;
-top:1rem; left:1rem;
-border-radius: .5rem;
-padding:1rem;
-font-size: 2.5rem;
-color:var(--white);
-background-color: var(--red);
+.load-more .option-btn:hover {
+  background-color: #004186; /* Change background color on hover */
 }
