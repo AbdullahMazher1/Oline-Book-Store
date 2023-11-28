@@ -19,7 +19,7 @@ if(isset($_POST['submit'])){
          $_SESSION['admin_name'] = $row['name'];
          $_SESSION['admin_email'] = $row['email'];
          $_SESSION['admin_id'] = $row['id'];
-         header('location:admin_page.php');
+         header('location:admin_products.php');
 
       }elseif($row['user_type'] == 'user'){
 
@@ -41,14 +41,16 @@ if(isset($_POST['submit'])){
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <title>login</title>
 
    <!-- font awesome cdn link  -->
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
    <!-- custom css file link  -->
-   <link rel="stylesheet" href="css/style.css">
+   <link rel="stylesheet" href="css/style.css?v=<?php echo time();?>">
 
 </head>
 <body class="backLog">
@@ -70,8 +72,8 @@ if(isset($message)){
 
    <form action="" method="post">
       <h3 class="logintext" >Login Now</h3>
-      <input type="email" name="email" placeholder="enter your email" required class="box">
-      <input type="password" name="password" placeholder="enter your password" required class="box">
+      <input type="email" name="email" placeholder="enter your email" required class="logbox">
+      <input type="password" name="password" placeholder="enter your password" required class="logbox">
       <input type="submit" name="submit" value="login now" class="btn">
       <p class= "ques">don't have an account? <a href="register.php" class="link">register now</a></p>
    </form>

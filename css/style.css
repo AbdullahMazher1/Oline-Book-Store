@@ -31,7 +31,7 @@
   margin: auto;
 }
   
-.box {
+.logbox {
   width: 90%;
   padding: 10px;
   margin-bottom: 15px;
@@ -286,7 +286,7 @@ body {
 /* Home section title */
 .home .content h3 {
   font-size: 4rem;
-  color:var(--white);
+  color:white;
   text-transform: uppercase; /* Change color of the title text */
 }
 
