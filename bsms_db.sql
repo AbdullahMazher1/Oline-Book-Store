@@ -51,3 +51,73 @@ CREATE TABLE `orders` (
   PRIMARY KEY (`id`)
 )
 
+CREATE TABLE `audit_log` (
+  `id` int(100) NOT NULL AUTO_INCREMENT,
+  `table_name` varchar(100) NOT NULL,
+  `record_id` int(100) NOT NULL,
+  `operation` varchar(10) NOT NULL,
+  `user_id` int(100) NOT NULL,
+  `timestamp` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `old_value` JSON,
+  `new_value` JSON,
+  PRIMARY KEY (`id`)
+);
+
+DELIMITER //
+CREATE TRIGGER users_audit_trigger_insert
+AFTER INSERT ON users
+FOR EACH ROW
+BEGIN
+    INSERT INTO audit_log (table_name, record_id, operation, user_id, old_value, new_value)
+    VALUES ('users', NEW.id, 'INSERT', 0, NULL, JSON_OBJECT('name', NEW.name, 'email', NEW.email, 'password', NEW.password, 'user_type', NEW.user_type, 'status', NEW.status));
+END //
+DELIMITER ;
+DELIMITER //
+CREATE TRIGGER users_audit_trigger_delete
+AFTER DELETE ON users
+FOR EACH ROW
+BEGIN
+    INSERT INTO audit_log (table_name, record_id, operation, user_id, old_value, new_value)
+    VALUES ('users', OLD.id, 'DELETE', 0, JSON_OBJECT('name', OLD.name, 'email', OLD.email, 'password', OLD.password, 'user_type', OLD.user_type, 'status', OLD.status), NULL);
+END //
+DELIMITER ;
+DELIMITER //
+CREATE TRIGGER products_audit_trigger_insert
+AFTER INSERT ON products
+FOR EACH ROW
+BEGIN
+    INSERT INTO audit_log (table_name, record_id, operation, user_id, old_value, new_value)
+    VALUES ('products', NEW.id, 'INSERT', 0, NULL, JSON_OBJECT('name', NEW.name, 'author', NEW.author, 'price', NEW.price, 'stock', NEW.stock, 'image', NEW.image, 'status', NEW.status));
+END //
+DELIMITER ;
+DELIMITER //
+CREATE TRIGGER products_audit_trigger_update
+AFTER UPDATE ON products
+FOR EACH ROW
+BEGIN
+    INSERT INTO audit_log (table_name, record_id, operation, user_id, old_value, new_value)
+    VALUES ('products', NEW.id, 'UPDATE', 0, JSON_OBJECT('name', OLD.name, 'author', OLD.author, 'price', OLD.price, 'stock', OLD.stock, 'image', OLD.image, 'status', OLD.status), JSON_OBJECT('name', NEW.name, 'author', NEW.author, 'price', NEW.price, 'stock', NEW.stock, 'image', NEW.image, 'status', NEW.status));
+END //
+DELIMITER ;
+
+/*For Cart*/
+DELIMITER //
+CREATE TRIGGER cart_audit_trigger_insert
+AFTER INSERT ON cart
+FOR EACH ROW
+BEGIN
+    INSERT INTO audit_log (table_name, record_id, operation, user_id, old_value, new_value)
+    VALUES ('cart', NEW.id, 'INSERT', NEW.user_id, NULL, JSON_OBJECT('name', NEW.name, 'price', NEW.price, 'quantity', NEW.quantity, 'image', NEW.image));
+END //
+DELIMITER ;
+
+/*For order*/
+DELIMITER //
+CREATE TRIGGER orders_audit_trigger_insert
+AFTER INSERT ON orders
+FOR EACH ROW
+BEGIN
+    INSERT INTO audit_log (table_name, record_id, operation, user_id, old_value, new_value)
+    VALUES ('orders', NEW.id, 'INSERT', NEW.user_id, NULL, JSON_OBJECT('name', NEW.name, 'number', NEW.number, 'email', NEW.email, 'method', NEW.method, 'address', NEW.address, 'total_products', NEW.total_products, 'total_price', NEW.total_price, 'placed_on', NEW.placed_on, 'payment_status', NEW.payment_status));
+END //
+DELIMITER ;
