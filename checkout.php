@@ -3,6 +3,15 @@
 include 'config.php';
 
 session_start();
+$logFile = 'logfile.txt';
+
+function logMessage($message)
+{
+    global $logFile;
+    $fileHandle = fopen($logFile, 'a') or die("Can't open file");
+    fwrite($fileHandle, $message . '  ' . date('Y-m-d H:i:s') . "\n");
+    fclose($fileHandle);
+}
 
 $user_id = $_SESSION['user_id'];
 
