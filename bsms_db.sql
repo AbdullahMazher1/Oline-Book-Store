@@ -63,6 +63,11 @@ CREATE TABLE `audit_log` (
   PRIMARY KEY (`id`)
 );
 
+
+
+/*Triggers*/
+
+/*For users*/
 DELIMITER //
 CREATE TRIGGER users_audit_trigger_insert
 AFTER INSERT ON users
@@ -81,8 +86,11 @@ BEGIN
     VALUES ('users', OLD.id, 'DELETE', 0, JSON_OBJECT('name', OLD.name, 'email', OLD.email, 'password', OLD.password, 'user_type', OLD.user_type, 'status', OLD.status), NULL);
 END //
 DELIMITER ;
+
+
+/*For products*/
 DELIMITER //
-CREATE TRIGGER products_audit_trigger_insert
+CREATE TRIGGER products_insert
 AFTER INSERT ON products
 FOR EACH ROW
 BEGIN
@@ -91,7 +99,7 @@ BEGIN
 END //
 DELIMITER ;
 DELIMITER //
-CREATE TRIGGER products_audit_trigger_update
+CREATE TRIGGER products_update
 AFTER UPDATE ON products
 FOR EACH ROW
 BEGIN
@@ -102,7 +110,7 @@ DELIMITER ;
 
 /*For Cart*/
 DELIMITER //
-CREATE TRIGGER cart_audit_trigger_insert
+CREATE TRIGGER cart_insert
 AFTER INSERT ON cart
 FOR EACH ROW
 BEGIN
@@ -113,7 +121,7 @@ DELIMITER ;
 
 /*For order*/
 DELIMITER //
-CREATE TRIGGER orders_audit_trigger_insert
+CREATE TRIGGER orders_insert
 AFTER INSERT ON orders
 FOR EACH ROW
 BEGIN
@@ -121,3 +129,23 @@ BEGIN
     VALUES ('orders', NEW.id, 'INSERT', NEW.user_id, NULL, JSON_OBJECT('name', NEW.name, 'number', NEW.number, 'email', NEW.email, 'method', NEW.method, 'address', NEW.address, 'total_products', NEW.total_products, 'total_price', NEW.total_price, 'placed_on', NEW.placed_on, 'payment_status', NEW.payment_status));
 END //
 DELIMITER ;
+ /*Order status update*/
+ DELIMITER //
+CREATE TRIGGER orders_status_change_trigger
+AFTER UPDATE ON orders
+FOR EACH ROW
+BEGIN
+    DECLARE admin_user_id INT;
+    
+    -- Check if the status column has been updated and the user updating is an admin
+    IF OLD.status <> NEW.status THEN
+        SELECT user_id INTO admin_user_id FROM audit_log WHERE table_name = 'users' AND record_id = NEW.user_id AND operation = 'UPDATE';
+        -- Replace 'YourAdminUserId' with the actual user ID for your admin user(s)
+        IF admin_user_id = YourAdminUserId THEN
+            INSERT INTO audit_log (table_name, record_id, operation, user_id, old_value, new_value)
+            VALUES ('orders', NEW.id, 'STATUS_CHANGE_BY_ADMIN', admin_user_id, JSON_OBJECT('status', OLD.status), JSON_OBJECT('status', NEW.status));
+        END IF;
+    END IF;
+END //
+DELIMITER ;
+
